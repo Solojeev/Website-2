@@ -19,7 +19,7 @@
             --text-color: #1A1A1A;
             --success-green: #34C759;
             --footer-color: #1A1A1A;
-            --header-color: #5b5b5b;J
+            --header-color: #5b5b5b;
         }
         
         * {
@@ -126,9 +126,10 @@
             margin-bottom: 20px;
         }
 
+        /* Reduced the margin-bottom for the hero paragraph */
         .hero p {
             font-size: 1.25rem;
-            margin-bottom: 200px;
+            margin-bottom: 20px;
         }
 
         .hero-button {
@@ -194,6 +195,7 @@
 
             .hero p {
                 font-size: 1rem;
+                margin-bottom: 20px;
             }
 
             .hero-button {
@@ -435,11 +437,19 @@
             padding: 40px 0;
         }
         
+        /* Reorder items in the footer so links appear first, stacked on mobile */
         .footer-content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .footer-links {
+            order: -1;
+            margin-bottom: 10px;
         }
         
         .footer-links a {
@@ -482,11 +492,20 @@
             color: var(--text-color);
             cursor: pointer;
         }
-        /* Ensure the iframe fills the modal-content appropriately */
+        /* Add a scroll-down prompt under the modal content */
+        .modal-content::after {
+            content: '\\2193 Scroll down to see more';
+            display: block;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 10px;
+        }
         .modal-content iframe {
             width: 100%;
             height: 550px;
             border: none;
+            display: block;
         }
 
         .cta-buttons {
@@ -523,7 +542,6 @@
             h2 { font-size: 1.8rem; }
             .section { padding: 60px 0; }
             .problem-cards, .value-columns { flex-direction: column; }
-            .footer-content { flex-direction: column; text-align: center; }
         }
 
         .header {
@@ -769,11 +787,11 @@
                     <h3>For Shoppers</h3>
                     <ul class="value-list">
                         <li>Shop with full confidence</li>
-                            <li>No more sizing frustration</li>
-                            <li>Find clothes that actually fit</li>
-                            <li>Get personalized outfit suggestions</li>
-                            <li>Enjoy smoother, faster purchases</li>
-                            <li>Reduce your carbon footprint</li>
+                        <li>No more sizing frustration</li>
+                        <li>Find clothes that actually fit</li>
+                        <li>Get personalized outfit suggestions</li>
+                        <li>Enjoy smoother, faster purchases</li>
+                        <li>Reduce your carbon footprint</li>
                     </ul>
                 </div>
             </div>
@@ -812,15 +830,17 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="copyright">© 2025 CORA. All rights reserved.</div>
-                <div class="social-links">
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                </div>
                 <div class="footer-links">
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="blog.html">Blog</a>
                     <a href="contact.html">Contact</a>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="copyright">
+                    © 2025 CORA. All rights reserved.
                 </div>
             </div>
         </div>
@@ -889,7 +909,7 @@
         });
 
         // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
