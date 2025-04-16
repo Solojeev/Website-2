@@ -103,26 +103,22 @@
         }
         
         .hero {
-  /* Full-viewport hero, with background behind text */
-  position: relative;
   width: 100%;
-  min-height: 100vh; /* Full screen height */
+  min-height: auto; /* Let content define the height */
   display: flex;
-  /* Center hero text in the middle for desktop */
+  flex-direction: column; /* Stack text + background in one container */
   align-items: center;
-  justify-content: flex-start; /* or center, if you prefer */
+  justify-content: center;
   
-  /* The background image is scaled to fill the entire container, 
-     which can crop the edges but ensures no empty space. */
   background-image: url('ChatGPT website Banner_edited_edited_edited_edited.jpg');
-  background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* Shows the ENTIRE image, may see white space (letterboxing) */
   
-  /* Some horizontal padding so text doesn't hug the screen edge */
-  padding: 0 60px;
-  box-sizing: border-box;
-  color: white;
+  padding: 60px 20px;
+  text-align: left; /* Typically for mobile hero */
+  color: #fff;
+  position: relative;
 }
 
 
@@ -189,15 +185,10 @@
 
         /* Keep your desktop hero styles above this... */
 
-@media (max-width: 768px) {
-  .hero {
-    /* keep full height so the text & button remain on the “image” background */
-    min-height: 100vh;
-    /* narrower padding on phones */
-    padding: 0 20px;
-    /* stack content + center align it */
-    justify-content: center;
-    text-align: center;
+   @media (max-width: 768px) {
+      .hero {
+       min-height: 80vh; 
+       background-position: center top;
   }
 
   /* Make the heading smaller so it fits on smaller screens */
