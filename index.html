@@ -103,18 +103,28 @@
         }
         
         .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between; /* Text left, image right */
-            background-image: url('ChatGPT website Banner_edited_edited_edited_edited.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 150px 60px;
-            min-height: 100vh;
-            box-sizing: border-box;
-            position: relative;
-        }
+  /* Full-viewport hero, with background behind text */
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Full screen height */
+  display: flex;
+  /* Center hero text in the middle for desktop */
+  align-items: center;
+  justify-content: flex-start; /* or center, if you prefer */
+  
+  /* The background image is scaled to fill the entire container, 
+     which can crop the edges but ensures no empty space. */
+  background-image: url('ChatGPT website Banner_edited_edited_edited_edited.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Some horizontal padding so text doesn't hug the screen edge */
+  padding: 0 60px;
+  box-sizing: border-box;
+  color: white;
+}
+
 
         .hero-content {
             max-width: 40%;
@@ -181,41 +191,35 @@
 
 @media (max-width: 768px) {
   .hero {
-    /* Remove forced min-height and let content size the section */
-    min-height: auto;
-    /* Add extra top padding so text isn't touching the CORA logo */
-    padding: 40px 20px 40px;
-    /* Switch from “cover” to “contain” to display the entire image */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: top center;
-    /* Stack content vertically */
-    flex-direction: column;
+    /* keep full height so the text & button remain on the “image” background */
+    min-height: 100vh;
+    /* narrower padding on phones */
+    padding: 0 20px;
+    /* stack content + center align it */
+    justify-content: center;
     text-align: center;
   }
-  
-  /* Slightly smaller hero title/font for mobile */
+
+  /* Make the heading smaller so it fits on smaller screens */
   .hero h1 {
     font-size: 2rem;
   }
-  
+
   .hero p {
     font-size: 1rem;
-    margin-bottom: 20px; /* reduce large bottom spacing */
-  }
-  
-  .hero-button {
-    width: 100%;
     margin-bottom: 1rem;
   }
-  
+
+  .hero-button {
+    width: auto; /* or 100%, if you prefer the button to fill the width */
+    margin-bottom: 1rem;
+  }
+
   .scroll-arrow {
-    /* Ensure arrow is still near the bottom */
     bottom: 20px;
     font-size: 1.5rem;
   }
 }
-
         
         .secondary-link {
             display: inline-block;
