@@ -103,22 +103,19 @@
         }
         
         .hero {
-  width: 100%;
-  min-height: auto; /* Let content define the height */
-  display: flex;
-  flex-direction: column; /* Stack text + background in one container */
-  align-items: center;
-  justify-content: center;
+ 
   
   background-image: url('ChatGPT website Banner_edited_edited_edited_edited.jpg');
-  background-repeat: no-repeat;
+ background-repeat: no-repeat;
   background-position: center;
-  background-size: contain; /* Shows the ENTIRE image, may see white space (letterboxing) */
   
-  padding: 60px 20px;
-  text-align: left; /* Typically for mobile hero */
+  /* On desktop, we want full-bleed, no white space */
+  background-size: cover; 
+  min-height: 100vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #fff;
-  position: relative;
 }
 
 
@@ -187,8 +184,9 @@
 
    @media (max-width: 768px) {
       .hero {
-       min-height: 80vh; 
-       background-position: center top;
+       background-size: contain; /* Show entire image on small screens */
+    min-height: auto;         /* Let the content define height */
+    padding: 40px 20px;     
   }
 
   /* Make the heading smaller so it fits on smaller screens */
