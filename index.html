@@ -177,36 +177,45 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding: 40px 20px;
-            }
+        /* Keep your desktop hero styles above this... */
 
-            .hero-content,
-            .hero-illustration {
-                max-width: 100%;
-            }
+@media (max-width: 768px) {
+  .hero {
+    /* Remove forced min-height and let content size the section */
+    min-height: auto;
+    /* Add extra top padding so text isn't touching the CORA logo */
+    padding: 100px 20px 40px;
+    /* Switch from “cover” to “contain” to display the entire image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top center;
+    /* Stack content vertically */
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  /* Slightly smaller hero title/font for mobile */
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 20px; /* reduce large bottom spacing */
+  }
+  
+  .hero-button {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .scroll-arrow {
+    /* Ensure arrow is still near the bottom */
+    bottom: 20px;
+    font-size: 1.5rem;
+  }
+}
 
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-                margin-bottom: 20px;
-            }
-
-            .hero-button {
-                width: 100%;
-            }
-
-            .scroll-arrow {
-                font-size: 1.5rem;
-                bottom: 20px;
-            }
-        }
         
         .secondary-link {
             display: inline-block;
