@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <style>
         :root {
-            --primary-orange: #FF8C00;
+            --primary-orange: #f28d28c4;
             --secondary-navy: #003B70;
             --background-white: #FFFFFF;
             --background-grey: #F8F8F8;
@@ -36,12 +36,13 @@
         }
         
         h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
+            font-weight: 400;
             margin-bottom: 1rem;
         }
         
         h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
+            font-weight: 400;
             line-height: 1.2;
         }
         
@@ -52,6 +53,7 @@
         
         p {
             margin-bottom: 1rem;
+            font-weight: 200;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
@@ -103,60 +105,72 @@
         }
         
         .hero {
- 
-  
-  background-image: url('ChatGPT website Banner_edited_edited_edited_edited.jpg');
- background-repeat: no-repeat;
-  background-position: center;
-  
-  /* On desktop, we want full-bleed, no white space */
-  background-size: cover; 
-  min-height: 100vh; 
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  color: #fff;
-}
+            background: url('ChatGPT website Banner_edited_edited_edited_edited.jpg') no-repeat center center;
+            background-size: cover;
+            min-height: 100vh;
+            position: relative;
+        }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
+            z-index: 1;
+        }
 
         .hero-content {
-            max-width: 40%;
+            position: relative;
+            z-index: 2;
+            max-width: 35%;
+            padding-top: 15%;
+            padding-left: 60px;
             text-align: left;
+            color: white;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
         }
 
-        /* Reduced the margin-bottom for the hero paragraph */
         .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
         }
 
         .hero-button {
-            padding: 12px 20px;
+            padding: 15px 30px;
             background-color: #fff;
-            color: #000;
+            color: var(--primary-orange);
             font-weight: bold;
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s ease; /* Add smooth transition */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1rem;
+            margin-top: 5rem;
         }
 
         .hero-button:hover {
-            background-color: #f0f0f0; /* Slightly darker background on hover */
-            transform: translateY(-3px); /* Lift the button slightly */
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+            background-color: #f0f0f0;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .hero-illustration {
-            max-width: 40%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .secondary-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #ffffffcc;
+            font-weight: 500;
+            text-decoration: underline;
+            font-size: 1rem;
         }
 
         .scroll-arrow {
@@ -164,11 +178,15 @@
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: white;
             cursor: pointer;
             animation: bounce 2s infinite;
-            z-index: 10;
+            transition: transform 0.3s ease;
+        }
+
+        .scroll-arrow:hover {
+            transform: translateY(5px);
         }
 
         @keyframes bounce {
@@ -180,36 +198,57 @@
             }
         }
 
-        /* Keep your desktop hero styles above this... */
+        @media (max-width: 768px) {
+            .hero {
+                background: url('Hero Banner_M2_Cropped.jpg') no-repeat center center;
+                background-size: cover;
+                height: 100vh;
+            }
 
-   @media (max-width: 768px) {
-      .hero {
-       background-size: contain; /* Show entire image on small screens */
-    min-height: 350px;         /* Let the content define height */
-    padding: 20px 10px;     
-  }
+            .hero-content {
+                text-align: center;
+                max-width: 90%;
+                margin: 0 auto;
+                padding-top: 20%;
+            }
 
-  /* Make the heading smaller so it fits on smaller screens */
-  .hero h1 {
-    font-size: 0.25rem;
-  }
+            .hero h1 {
+                font-size: 1.8rem;
+                line-height: 1.4;
+            }
 
-  .hero p {
-    font-size: 0.3rem;
-    margin-bottom: 0.25rem;
-  }
+            .hero p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
 
-  .hero-button {
-    width: auto; /* or 100%, if you prefer the button to fill the width */
-    margin-bottom: 0.25rem;
-  }
+            .hero-button {
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
 
-  .scroll-arrow {
-    bottom: 10px;
-    font-size: 0.25rem;
-  }
-}
-        
+            .scroll-arrow {
+                font-size: 2rem;
+                bottom: 20px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                background-size: cover;
+                background-position: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                background-position: 70% center;
+                background-size: auto 100%;
+                height: 100vh;
+            }
+        }
+
         .secondary-link {
             display: inline-block;
             margin-top: 15px;
@@ -394,7 +433,7 @@
             max-width: 500px;
             margin-left: auto;
             margin-right: auto;
-            text-align: center; /* Center-aligns the form content */
+            text-align: center;
         }
         
         .input-group {
@@ -413,9 +452,9 @@
         
         .checkbox-group {
             display: flex;
-            align-items: center; /* Aligns the checkbox and text vertically */
-            gap: 0.5rem; /* Adds space between the checkbox and the text */
-            justify-content: center; /* Centers the checkbox and label */
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
         }
         
         .privacy-note {
@@ -430,7 +469,7 @@
             padding: 8px 20px;
             border-radius: 30px;
             font-size: 0.875rem;
-            text-align: center; /* Ensures the counter is center-aligned */
+            text-align: center;
         }
         
         .footer {
@@ -439,19 +478,11 @@
             padding: 40px 0;
         }
         
-        /* Reorder items in the footer so links appear first, stacked on mobile */
         .footer-content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            flex-direction: column;
-            text-align: center;
-        }
-        
-        .footer-links {
-            order: -1;
-            margin-bottom: 10px;
         }
         
         .footer-links a {
@@ -494,20 +525,10 @@
             color: var(--text-color);
             cursor: pointer;
         }
-        /* Add a scroll-down prompt under the modal content */
-        .modal-content::after {
-            content: '\\2193 Scroll down to see more';
-            display: block;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #888;
-            margin-top: 10px;
-        }
         .modal-content iframe {
             width: 100%;
             height: 550px;
             border: none;
-            display: block;
         }
 
         .cta-buttons {
@@ -540,10 +561,39 @@
         }
         
         @media (max-width: 768px) {
+    .hero-content {
+        text-align: center; /* Center-align text for mobile */
+        max-width: 75%; /* Adjust width for smaller screens */
+        margin: 0 auto; /* Center the content horizontally */
+        padding-top: 25%; /* Adjust vertical placement */
+        padding-left: 0; /* Remove left padding */
+    }
+
+    .hero h1 {
+        font-size: 1.8rem; /* Adjust font size for mobile */
+        line-height: 1.4;
+    }
+
+    .hero p {
+        font-size: 0.9rem; /* Adjust paragraph font size */
+        font-width: 200;
+        line-height: 1.6;
+        margin-bottom: 1.5rem; /* Add spacing below the paragraph */
+    }
+
+    .hero-button {
+        width: 70%; /* Make the button full-width */
+        padding: 12px 20px; /* Adjust padding for mobile */;
+        margin-top: 400px;
+        font-size: 0.8rem; /* Adjust font size for the button */
+    }
+}
+        @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
             h2 { font-size: 1.8rem; }
             .section { padding: 60px 0; }
             .problem-cards, .value-columns { flex-direction: column; }
+            .footer-content { flex-direction: column; text-align: center; }
         }
 
         .header {
@@ -568,8 +618,8 @@
         }
 
         .header .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.2rem;
+            font-weight: 300;
             color: var(--primary-orange);
             text-decoration: none;
         }
@@ -593,7 +643,7 @@
 
         @media (max-width: 768px) {
             .header {
-                padding: 10px 20px;
+                padding: 10px 60px;
             }
 
             .header .nav-links {
@@ -618,15 +668,15 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Reinventing Online Fashion: Precision Fit. Zero Guesswork.</h1>
+            <h1>Create. Try. Style. Buy.<br>VIRTUALLY</h1>
             <p>
                 CORA is pioneering 3D virtual try-on technology to solve sizing challenges,
                 reduce costly returns for retailers, and revolutionize the way people shop online.
             </p>
-            <button class="hero-button" onclick="scrollToWaitlist()">Reserve My Spot – Get Early Access</button>
-            <p style="font-style: italic; margin-top: 10px; font-size: 0.9rem; color: #cccccc;">Join 500+ early access users and pilot partners.</p>
+            <button class="hero-button" onclick="scrollToWaitlist()" aria-label="Reserve My Spot – Get Early Access">Reserve My Spot – Get Early Access</button>
+            <p style="font-style: italic; font-size: 0.8rem; color: #d7d7d7;">Join 500+ early access users and pilot partners.</p>
         </div>
-        <div class="scroll-arrow" onclick="scrollToNextSection()">
+        <div class="scroll-arrow" onclick="scrollToNextSection()" aria-label="Scroll to next section">
             <i class="fas fa-chevron-down"></i>
         </div>
     </section>
@@ -789,11 +839,11 @@
                     <h3>For Shoppers</h3>
                     <ul class="value-list">
                         <li>Shop with full confidence</li>
-                        <li>No more sizing frustration</li>
-                        <li>Find clothes that actually fit</li>
-                        <li>Get personalized outfit suggestions</li>
-                        <li>Enjoy smoother, faster purchases</li>
-                        <li>Reduce your carbon footprint</li>
+                            <li>No more sizing frustration</li>
+                            <li>Find clothes that actually fit</li>
+                            <li>Get personalized outfit suggestions</li>
+                            <li>Enjoy smoother, faster purchases</li>
+                            <li>Reduce your carbon footprint</li>
                     </ul>
                 </div>
             </div>
@@ -822,7 +872,7 @@
                     </p>
                 </form>
                 <div class="waitlist-counter">
-                    <span id="counter">527</span> innovators have already joined
+                    <em><span id="counter">"527</span> innovators have already joined"</em>
                 </div>
             </div>
         </div>
@@ -840,10 +890,7 @@
                 <div class="social-links">
                     <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                </div>
-                <div class="copyright">
-                    © 2025 CORA. All rights reserved.
-                </div>
+                </div> <div class="copyright" style="font-size: small; color: #f28d28c4;">© 2025 CORA. All rights reserved.</div>
             </div>
         </div>
     </footer>
@@ -911,7 +958,7 @@
         });
 
         // Smooth Scroll
-        document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
