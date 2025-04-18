@@ -497,6 +497,18 @@
             display: flex;
             gap: 15px;
         }
+
+
+       
+      .boxed-section {
+         background: #ffffff;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+          padding: 40px;
+          margin: 60px auto;       
+          max-width: 2000px;      
+        }
+
         
         .modal {
             display: none;
@@ -681,14 +693,15 @@
             <button class="hero-button" onclick="scrollToWaitlist()" aria-label="Get Early Access">Get Early Access</button>
             <p style="font-style: italic; font-size: 0.8rem; color: #d7d7d7;">Join 500+ early access users and pilot partners.</p>
         </div>
-        <div class="scroll-arrow" onclick="scrollToNextSection()" aria-label="Scroll to next section">
-            <i class="fas fa-chevron-down"></i>
-        </div>
+       <a href="#problem" class="scroll-arrow" aria-label="Scroll to next section">
+  <i class="fas fa-chevron-down"></i>
+</a>
     </section>
 
     <!-- Problem Section -->
     <section class="problem section" id="problem">
         <div class="container">
+         <div class="boxed-section">
             <div class="text-center" data-aos="fade-up">
                 <h2>The True Cost of Getting Fit Wrong</h2>
                 <p>Sizing uncertainty is one of fashion e-commerce’s most expensive problems — hurting retailers and frustrating shoppers every day.</p>
@@ -718,7 +731,8 @@
                 </div>
             </div>
         </div>
-    </section>
+       </div>
+  </section>
 
     <!-- Solution Section -->
     <section class="solution section" id="solution">
@@ -787,6 +801,31 @@
             </div>
         </div>
     </section>
+
+
+
+     <!-- Concept Demo Section -->
+  <section id="demo" class="section text-center" data-aos="fade-up">
+    <div class="container">
+     <div class="boxed-section">
+    <h2>Concept Demo: Realistic Avatar in Action</h2>
+    <p style="max-width:700px; margin:1rem auto 2rem;">
+       This proof‑of‑concept showcases how lifelike and interactive your avatar could be, highlighting hyper‑realistic, lifelike eye movement that breathes genuine expression into your avatar.  And this is only the beginning—your final avatar will boast 100 + fully customizable and lifelike features to make it truly yours.
+    </p>
+    </p>
+    <video 
+      src="Model Demo.mp4" 
+      controls 
+      style="width:100%; max-width:800px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
+      Your browser doesn’t support video playback.
+      </video>
+    </div>
+    </div>
+   </section>
+
+
+
+
 
     <!-- Technology Section -->
     <section class="technology section" id="technology">
