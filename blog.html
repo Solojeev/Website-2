@@ -21,10 +21,16 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
+      height: 100%;
       font-family: 'Inter', sans-serif;
       background-color: var(--background-grey);
       color: white;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
     }
 
     .header {
@@ -70,8 +76,9 @@
 
     main {
       max-width: 1000px;
-      margin: 120px auto 60px;
+      margin: 120px auto 40px;
       padding: 20px;
+      flex-grow: 1;
     }
 
     h1 {
@@ -112,7 +119,7 @@
     }
 
     footer {
-      background-color: var(--text-color);
+      background-color: #1a1a1a;
       color: white;
       padding: 40px 0;
     }
@@ -125,6 +132,7 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 20px;
+      padding: 0 20px;
     }
 
     .footer-links a {
@@ -154,15 +162,22 @@
         flex-direction: column;
         height: auto;
       }
+
       .header .nav-links {
         flex-direction: column;
         align-items: center;
         gap: 10px;
         margin-top: 10px;
       }
+
       .footer-content {
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      .footer-links a {
+        margin-left: 0;
+        margin-right: 10px;
       }
     }
   </style>
