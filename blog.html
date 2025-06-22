@@ -100,11 +100,26 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s forwards;
+    }
+
+    .blog-card:nth-child(1) { animation-delay: 0.2s; }
+    .blog-card:nth-child(2) { animation-delay: 0.4s; }
+    .blog-card:nth-child(3) { animation-delay: 0.6s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .blog-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
 
     .blog-card h2 {
@@ -116,6 +131,11 @@
     .blog-card p {
       font-size: 1rem;
       line-height: 1.6;
+    }
+
+    .blog-card a {
+      text-decoration: none;
+      color: inherit;
     }
 
     footer {
@@ -182,7 +202,6 @@
     }
   </style>
 </head>
-
 <body>
   <!-- Header -->
   <header class="header" id="header">
@@ -196,29 +215,27 @@
 
   <!-- Main Blog Section -->
   <main>
-    <div class="container">
-    <h1 style="text-align:center;">CORA Blog</h1>
-    <p class="intro">Insights, trends, and updates on the future of online fashion, fit tech, and digital retail. New articles added regularly.</p>
+    <h1>CORA Blog</h1>
     <div class="blog-grid">
-      <div class="blog-post">
-        <div class="blog-title"><a href="First_blog.html">The 'Add to Cart' Anxiety: Why Online Fashion Still Feels Like a Gamble</a></div>
-        <div class="blog-meta">By CORA Team | April 2025</div>
-        <div class="blog-content"><p>Let’s be honest — online shopping is supposed to be easy. Fun. Empowering... </p></div>
-      </div>
-      <div class="blog-post">
-        <div class="blog-title"><a href="Second_blog.html">5 AI Styling Hacks You Can Almost Use Today (And Why You’ll Want To)</a></div>
-        <div class="blog-meta">By CORA Team | May 2025</div>
-        <div class="blog-content"><p>Imagine a world where your wardrobe understands you... </p></div>
-      </div>
-      <div class="blog-post">
-        <div class="blog-title"><a href="Third_blog.html">Zero Buyer’s Remorse: The Shared Goal for Shoppers and Brands</a></div>
-        <div class="blog-meta">By CORA Team | June 2025</div>
-        <div class="blog-content"><p>Let’s say you just placed an online fashion order... </p></div>
-      </div>
+      <!-- Blog Post 1 -->
+      <a class="blog-card" href="/First_blog.html">
+        <!-- Replace the above href with CMS slug or markdown-generated route -->
+        <h2>How 3D Virtual Try-On is Changing Indian Fashion</h2>
+        <p>Explore how AR and AI-based try-on tools are redefining the online shopping experience and reducing returns.</p>
+      </a>
+      <!-- Blog Post 2 -->
+      <a class="blog-card" href="/Second_blog.html">
+        <!-- Replace the above href with CMS slug or markdown-generated route -->
+        <h2>Top 5 Fit-Tech Trends to Watch in 2025</h2>
+        <p>From body scanning to personalized avatars, here are the biggest innovations shaping the digital fashion space.</p>
+      </a>
+      <!-- Blog Post 3 -->
+      <a class="blog-card" href="/Third_blog.html">
+        <!-- Replace the above href with CMS slug or markdown-generated route -->
+        <h2>Building Consumer Trust in Virtual Retail</h2>
+        <p>Discover strategies to build emotional and visual trust with buyers in the age of digital-first fashion brands.</p>
+      </a>
     </div>
-
-    <a href="index.html" class="back-link">← Back to Home</a>
-  </div>
   </main>
 
   <!-- Footer -->
@@ -238,8 +255,24 @@
   </footer>
 
   <script>
+    // Header Scroll Effect
     window.addEventListener('scroll', () => {
       document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Lazy Load Blog Cards
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.blog-card').forEach(card => {
+      observer.observe(card);
     });
   </script>
 </body>
