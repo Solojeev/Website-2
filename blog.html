@@ -187,28 +187,20 @@
       color: var(--primary-orange);
     }
 
-    @media(max-width: 600px) {
+    @media(max-width: 768px) {
       .header {
-        padding: 10px 20px;
-        flex-direction: column;
-        height: auto;
+        padding: 10px 40px;
       }
 
       .header .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        margin-top: 10px;
+        gap: 15px;
       }
 
-      .footer-content {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      .header .nav-links a {
+        font-size: 1rem;
 
-      .footer-links a {
-        margin-left: 0;
-        margin-right: 10px;
+      .header .logo {
+        font-size: 1.2rem;
       }
     }
   </style>
