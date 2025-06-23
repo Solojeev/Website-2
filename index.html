@@ -667,23 +667,20 @@
             color: var(--primary-orange);
         }
 
-        @media (max-width: 768px) {
-            .header {
-                padding: 10px 40px;
-            }
-
-            .header .nav-links {
-                gap: 15px;
-            }
-            
-            .header .nav-links a {
-                font-size: 1rem;
-            }
-            
-            .header .logo {
-                font-size: 1.2rem;
-            }
+        @media(max-width: 768px) {
+        .header {
+            flex-direction: row;
+            height: auto;
+            padding: 25px 40px;
+            align-items: center;
         }
+
+        .header .nav-links {
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+        }
+        
     </style>
 </head>
 <body>
