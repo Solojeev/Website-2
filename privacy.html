@@ -273,3 +273,32 @@
       <li>We do <strong>not</strong> sell your data.</li>
       <li>We may share data with trusted third-party processors (e.g., cloud hosting, analytics tools).</li>
       <li>We may disclose data if required by law or to protect our le
+
+    <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="social-links">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+      <div class="copyright">© 2025 CORA. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Header Scroll Effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    document.querySelectorAll('.blog-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
