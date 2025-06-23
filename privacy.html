@@ -16,7 +16,7 @@
       --primary-orange: #f28d28c4;
       --background-grey: #0D0D0D;
       --text-color: #1A1A1A;
-      --header-color: #ffffffcc;
+      --header-color: #5b5b5b;
     }
 
     * {
@@ -75,166 +75,128 @@
       text-decoration: underline;
     }
 
-    /* Header styles */
     .header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 80px;
-        background-color: rgba(42, 42, 42, 0.5);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 60px;
-        z-index: 1000;
-        transition: all 0.3s ease;
-      }
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-color: rgba(42, 42, 42, 0.5);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 60px;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
 
-      .header.scrolled {
-        background-color: #ffffff;
-        box-shadow: 0 4px 10px #00000033;
-      }
+    .header.scrolled {
+      background-color: #ffffff;
+      box-shadow: 0 4px 10px #00000033;
+    }
 
-      .header .logo {
-        font-size: 1.2rem;
-        font-weight: 300;
-        color: var(--primary-orange);
-        text-decoration: none;
-        letter-spacing: 1px;
+    .header .logo {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--primary-orange);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .header .nav-links {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    .header .nav-links a {
+      font-size: 1rem;
+      color: var(--header-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .header .nav-links a:hover {
+      color: var(--primary-orange);
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+    }
+
+    .footer-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .footer-links a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .copyright {
+      font-size: small;
+      color: var(--primary-orange);
+    }
+
+    @media(max-width: 768px) {
+      .header {
+        height: 30px;
+        padding: 30px 40px;
       }
 
       .header .nav-links {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-      }
-
-      .header .nav-links a {
-        font-size: 1rem;
-        color: var(--header-color);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-      }
-
-      .header .nav-links a:hover {
-        color: var(--primary-orange);
-      }
-
-
-    /* Footer styles */
-    footer {
-        background-color: #1a1a1a;
-        color: white;
-        padding: 40px 0;
-      }
-
-      .footer-content {
-        max-width: 1000px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
-        padding: 0 20px;
-      }
-
-      .footer-links a {
-        color: white;
-        margin-left: 20px;
-        text-decoration: none;
-        opacity: 0.8;
-      }
-
-      .footer-links a:hover {
-        opacity: 1;
-      }
-
-      .social-links {
-        display: flex;
         gap: 15px;
       }
 
-      .copyright {
-        font-size: small;
-        color: var(--primary-orange);
+      .footer {
+        padding: 20px 0;
       }
-  
-    @media(max-width: 768px) {
-  .header {
-    flex-direction: row;
-    height: 30px;
-    padding: 30px 40px;
-    align-items: center;
-  }
-  .header .logo {
-    font-size: 1.2rem;
-    font-weight: 300;
-  }
-  .header .nav-links {
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
-  }
 
-  h1 {
-    font-size: 2rem;
-  }
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+        row-gap: 10px;
+      }
 
-  .intro {
-    font-size: 0.95rem;
-  }
+      .footer-links {
+        justify-content: center;
+        gap: 10px;
+      }
 
-  .blog-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
+      .footer-links a {
+        margin: 0;
+      }
 
-  .blog-card {
-    width: 90%;
-    max-width: 380px;
-  }
-
-
-  .footer {
-    padding: 20px 0px;
-    height: auto;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    row-gap: 10px;
-  }
-
-  .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .footer-links a {
-    margin: 0;
-  }
-
-  .social-links {
-    justify-content: center;
-  }
-}
+      .social-links {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
-
 <body>
-  <!-- Header -->
   <header class="header" id="header">
     <a href="index.html" class="logo">CORA</a>
     <nav class="nav-links">
@@ -243,7 +205,6 @@
     </nav>
   </header>
 
-  <!-- Main Content -->
   <div class="container">
     <h1>Privacy Policy</h1>
     <p>Effective Date: April 2025</p>
@@ -272,9 +233,12 @@
     <ul>
       <li>We do <strong>not</strong> sell your data.</li>
       <li>We may share data with trusted third-party processors (e.g., cloud hosting, analytics tools).</li>
-      <li>We may disclose data if required by law or to protect our le
+      <li>We may disclose data if required by law or to protect our legal rights.</li>
+    </ul>
 
-    <!-- Footer -->
+    <a href="index.html" class="back-link">&larr; Back to Home</a>
+  </div>
+
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-links">
@@ -286,18 +250,13 @@
         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
       </div>
-      <div class="copyright">© 2025 CORA. All rights reserved.</div>
+      <div class="copyright">&copy; 2025 CORA. All rights reserved.</div>
     </div>
   </footer>
 
   <script>
-    // Header Scroll Effect
     window.addEventListener('scroll', () => {
       document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    document.querySelectorAll('.blog-card').forEach(card => {
-      observer.observe(card);
     });
   </script>
 </body>
