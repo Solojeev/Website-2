@@ -14,11 +14,12 @@
   <style>
     :root {
       --primary-orange: #f28d28c4;
-      --background-grey: #0f1921;
-      --text-color: #1A1A1A;
-      --header-color: #5b5b5b;
-      --footer-color:#1a1a1a;
-      --card-bg: #F8F8F8;
+      --background-dark: #0f1921;
+      --card-bg: transparent;
+      --card-border: transparent;
+      --text-color: #f7f7fa;
+      --header-color: #f7f7fa;
+      --footer-color: #1a1a1a;
     }
 
     *,
@@ -35,7 +36,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--background-grey);
+      background: var(--background-dark);
       color: var(--text-color);
       display: flex;
       flex-direction: column;
@@ -95,8 +96,9 @@
       max-width: 100%;
       margin: 120px auto 40px;
       text-align: center;
-      background: white;
-      box-shadow: 0 10px 25px #0000000d;
+      /* Remove background and box-shadow to eliminate white frame */
+      background: none;
+      box-shadow: none;
     }
 
     h1 {
@@ -248,6 +250,162 @@
         justify-content: center;
       }
     }
+
+    .blog-main {
+      background: none;
+      padding: 80px 0 60px 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .blog-card {
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      max-width: 860px;
+      width: 100%;
+      padding: 0;
+      margin: 0 auto;
+      text-align: left;
+      position: relative;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 38px;
+      font-size: 1.08rem;
+      color: #747474;
+      text-decoration: none;
+      background: #23242a;
+      color: #f7f7fa;
+      padding: 8px 20px;
+      border-radius: 7px;
+      transition: color 0.2s;
+    }
+    .heading h1 {
+      font-size: 2.7rem;
+      color: var(--primary-orange);
+      margin-bottom: 1.3rem;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    .subtitle {
+      font-size: 1.22rem;
+      color: #f28d28c4;
+      margin-bottom: 2.8rem;
+      line-height: 2.1;
+    }
+    .featured-image {
+      margin: 0 0 3.8rem 0;
+      text-align: center;
+    }
+    .featured-image img {
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px #00000022;
+    }
+    .divider {
+      height: 1px;
+      background: #23242a;
+      margin: 48px 0 48px 0;
+    }
+    .blog-card p, .blog-card li, .blog-card h1, .blog-card h2, .blog-card h3, .blog-card .subtitle {
+      color: var(--text-color);
+    }
+    .blog-card ul {
+      margin-bottom: 2.2rem;
+      padding-left: 1.5rem;
+    }
+    .blog-card li {
+      font-size: 1.13rem;
+      margin-bottom: 1.1rem;
+      line-height: 1.9;
+    }
+    .blog-card h2 {
+      font-size: 1.55rem;
+      margin: 2.8rem 0 1.3rem 0;
+      color: #f28d28c4;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .tldr {
+      background-color: #181c22;
+      border-left: 4px solid var(--primary-orange);
+      padding: 28px 28px 28px 22px;
+      margin-top: 56px;
+      border-radius: 8px;
+      color: #f7f7fa;
+    }
+    .tldr h2 {
+      font-size: 1.18rem;
+      color: #f28d28c4;
+      margin-bottom: 1.1rem;
+      font-weight: 700;
+    }
+    .tldr ul {
+      margin-bottom: 0;
+    }
+    .tldr ul li {
+      color: #f7f7fa;
+    }
+    .cta {
+      display: inline-block;
+      background-color: #23242a;
+      color: var(--primary-orange);
+      text-decoration: none;
+      padding: 16px 28px;
+      font-weight: 600;
+      border-radius: 7px;
+      transition: background-color 0.3s ease;
+      margin: 2.2rem 0 0.5rem 0;
+      font-size: 1.13rem;
+    }
+    .cta:hover {
+      background-color: var(--primary-orange);
+      color: #23242a;
+    }
+    .related-posts {
+      margin-top: 44px;
+    }
+    .related-posts h3 {
+      font-size: 1.18rem;
+      color: #f28d28c4;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .related-posts ul {
+      list-style: disc inside;
+      color: #747474;
+      margin-bottom: 0;
+    }
+    .related-posts a {
+      color: var(--primary-orange);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .related-posts a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 900px) {
+      .blog-card {
+        padding: 36px 12px 32px 12px;
+      }
+    }
+    @media (max-width: 600px) {
+      .blog-card {
+        padding: 16px 2vw 18px 2vw;
+        border-radius: 14px;
+      }
+      .heading h1 {
+        font-size: 1.5rem;
+      }
+      .featured-image img {
+        max-width: 98vw;
+      }
+    }
   </style>
 </head>
 
@@ -262,64 +420,71 @@
   </header>
 
   <!-- Main Blog Content -->
-  <main class="container">
-    <div class="heading"><h1>The 'Add to Cart' Anxiety: Why Online Fashion Still Feels Like a Gamble</h1></div>
-    <p><em>Why does buying clothes online still feel risky in 2025? We unpack the fit frustration, wardrobe clutter, and hidden costs — and hint at what comes next.</em></p>
-
-    <div class="featured-image">
-      <img src="BI_1.png" alt="Infographic on online fashion challenges" width="300" height="200">
-    </div>
-
-    <p>Let’s be honest — online shopping is supposed to be easy. Fun. Empowering. But when it comes to buying clothes, even the savviest shopper has felt it: That hesitation. That double-check. That moment where you ask yourself: <strong>“Will this even fit me?”</strong></p>
-    <p>It’s 2025. Yet we’re still guessing.</p>
-
-    <h2>🚨 The Fit Frustration Is Real</h2>
-    <ul>
-      <li>You've likely been here: you find a piece you love — the photo is perfect.</li>
-      <li>The size chart looks like math homework.</li>
-      <li>You squint at a model and think, “I’m somewhere between her and her.”</li>
-      <li>You order anyway... and return it two days later.</li>
-    </ul>
-    <p><strong>70% of online returns in fashion are still due to fit issues.</strong> And it costs the global fashion industry over <strong>$300 billion</strong> a year.</p>
-
-    <h2>💸 The Hidden Cost of a Bad Purchase</h2>
-    <ul>
-      <li><strong>Time wasted</strong> returning, reordering, tracking.</li>
-      <li><strong>Money lost</strong> in restocking fees or non-refundable orders.</li>
-      <li><strong>Clutter created</strong> in your wardrobe from “almost okay” items you never wear.</li>
-      <li><strong>Environmental impact</strong> of reverse logistics and waste.</li>
-    </ul>
-
-    <h2>👚 Wardrobes Are Growing. Satisfaction Isn’t.</h2>
-    <ul>
-      <li>“I have nothing to wear.”</li>
-      <li>“I ordered 5 sizes just to return 4.”</li>
-      <li>“I don’t remember what’s in my closet anymore.”</li>
-    </ul>
-    <p>Turns out, it’s not about <em>more</em>. It’s about <strong>what fits — and what feels right.</strong></p>
-
-    <h2>💡 There Has to Be a Smarter Way</h2>
-    <ul>
-      <li>You upload your measurements (once).</li>
-      <li>You build a digital twin.</li>
-      <li>You virtually try on clothes before they ship.</li>
-      <li>You only keep what fits and feels good.</li>
-    </ul>
-
-    <h2>👀 What’s Coming Next</h2>
-    <p>We’re building something new. It’s called <strong>CORA</strong> — a tool designed to solve these exact problems using 3D virtual try-ons and AI styling. No gimmicks. Just the future of fashion made personal, private, and precise.</p>
-    <p>We're not here to hype. We’re here to rethink what “buying clothes online” could feel like — finally.</p>
-
-    <a href="#waitlist" class="cta">Join the Waitlist →</a>
-
-    <div class="tldr">
-      <h2>🧠 TL;DR</h2>
+  <main class="container blog-main">
+    <div class="blog-card">
+      <a href="blog.html" class="back-link">← Back to Blog</a>
+      <div class="heading"><h1>The 'Add to Cart' Anxiety: Why Online Fashion Still Feels Like a Gamble</h1></div>
+      <p class="subtitle"><em>Why does buying clothes online still feel risky in 2025? We unpack the fit frustration, wardrobe clutter, and hidden costs — and hint at what comes next.</em></p>
+      <div class="featured-image">
+        <img src="BI_1.png" alt="Infographic on online fashion challenges">
+      </div>
+      <div class="divider"></div>
+      <p>Let’s be honest — online shopping is supposed to be easy. Fun. Empowering. But when it comes to buying clothes, even the savviest shopper has felt it: That hesitation. That double-check. That moment where you ask yourself: <strong>“Will this even fit me?”</strong></p>
+      <p>It’s 2025. Yet we’re still guessing.</p>
+      <h2>🚨 The Fit Frustration Is Real</h2>
       <ul>
-        <li>Online fashion still feels risky — mainly due to fit.</li>
-        <li>Bad purchases cost us more than we realize.</li>
-        <li>Technology like 3D try-ons and AI can finally fix this.</li>
-        <li>CORA is building it — and you can be part of it.</li>
+        <li>You've likely been here: you find a piece you love — the photo is perfect.</li>
+        <li>The size chart looks like math homework.</li>
+        <li>You squint at a model and think, “I’m somewhere between her and her.”</li>
+        <li>You order anyway... and return it two days later.</li>
       </ul>
+      <p><strong>70% of online returns in fashion are still due to fit issues.</strong> And it costs the global fashion industry over <strong>$300 billion</strong> a year.</p>
+      <div class="divider"></div>
+      <h2>💸 The Hidden Cost of a Bad Purchase</h2>
+      <ul>
+        <li><strong>Time wasted</strong> returning, reordering, tracking.</li>
+        <li><strong>Money lost</strong> in restocking fees or non-refundable orders.</li>
+        <li><strong>Clutter created</strong> in your wardrobe from “almost okay” items you never wear.</li>
+        <li><strong>Environmental impact</strong> of reverse logistics and waste.</li>
+      </ul>
+      <div class="divider"></div>
+      <h2>👚 Wardrobes Are Growing. Satisfaction Isn’t.</h2>
+      <ul>
+        <li>“I have nothing to wear.”</li>
+        <li>“I ordered 5 sizes just to return 4.”</li>
+        <li>“I don’t remember what’s in my closet anymore.”</li>
+      </ul>
+      <p>Turns out, it’s not about <em>more</em>. It’s about <strong>what fits — and what feels right.</strong></p>
+      <div class="divider"></div>
+      <h2>💡 There Has to Be a Smarter Way</h2>
+      <ul>
+        <li>You upload your measurements (once).</li>
+        <li>You build a digital twin.</li>
+        <li>You virtually try on clothes before they ship.</li>
+        <li>You only keep what fits and feels good.</li>
+      </ul>
+      <div class="divider"></div>
+      <h2>👀 What’s Coming Next</h2>
+      <p>We’re building something new. It’s called <strong>CORA</strong> — a tool designed to solve these exact problems using 3D virtual try-ons and AI styling. No gimmicks. Just the future of fashion made personal, private, and precise.</p>
+      <p>We're not here to hype. We’re here to rethink what “buying clothes online” could feel like — finally.</p>
+      <a href="#waitlist" class="cta">Join the Waitlist →</a>
+      <div class="tldr">
+        <h2>🧠 TL;DR</h2>
+        <ul>
+          <li>Online fashion still feels risky — mainly due to fit.</li>
+          <li>Bad purchases cost us more than we realize.</li>
+          <li>Technology like 3D try-ons and AI can finally fix this.</li>
+          <li>CORA is building it — and you can be part of it.</li>
+        </ul>
+      </div>
+      <div class="divider"></div>
+      <div class="related-posts">
+        <h3>Related Posts</h3>
+        <ul>
+          <li><a href="#">How AI is Changing Fashion Shopping</a></li>
+          <li><a href="#">5 Tips to Find Your Perfect Fit Online</a></li>
+        </ul>
+      </div>
     </div>
   </main>
 
