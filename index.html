@@ -19,9 +19,8 @@
             --background-grey: #F8F8F8;
             --text-color: #1A1A1A;
             --success-green: #34C759;
-            --footer-color: #003C3B;
-            --header-color: #003c3ba2;
-            --header-text-color: #5b5b5b;
+            --footer-color: #1A1A1A;
+            --header-color: #5b5b5b;
         }
 
         /* Global Styles */
@@ -85,7 +84,7 @@
             left: 0;
             width: 100%;
             height: 80px;
-            background-color: var(--header-color);
+            background-color: rgba(42, 42, 42, 0.5);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: row;
@@ -97,8 +96,8 @@
             }
 
         .header.scrolled {
-            background-color: #003C3B;
-            box-shadow: 0 4px 10px #003c3b97;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px #00000033;
             }
 
         .header .logo {
@@ -117,7 +116,7 @@
 
         .header .nav-links a {
             font-size: 1rem;
-            color: var(--header-text-color);
+            color: var(--header-color);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
